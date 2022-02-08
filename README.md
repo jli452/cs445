@@ -1,2 +1,1 @@
-# cs445
-Software Engineering group work
+# Encryptor for CS445
