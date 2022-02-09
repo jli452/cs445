@@ -1,13 +1,9 @@
 from cryptography.fernet import Fernet
 from flask import *
 from encryption import Encrypt
+from estring import EncryptionStr
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'woohoo'
-
-class EncryptionStr:
-    def __init__(self, encrypt, s):
-        self.encrypt = encrypt
-        self.s = s
 
 @app.route('/')
 def render_site():
@@ -21,6 +17,9 @@ def update():
         estr.encrypt(estr)
         return estr.s
 
-if __name__ == '__main__':
+def main():
     app.debug = True
     app.run()
+
+if __name__ == '__main__':
+    main()    
