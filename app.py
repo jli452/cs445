@@ -1,6 +1,6 @@
 from cryptography.fernet import Fernet
 from flask import *
-import base64
+from encryption import Encrypt
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'woohoo'
 
@@ -9,19 +9,15 @@ class EncryptionStr:
         self.encrypt = encrypt
         self.s = s
 
-def base64_encrypt(estr):
-    encodedBytes = base64.b64encode(estr.s.encode("utf-8"))
-    estr.s = str(encodedBytes, "utf-8")
-
 @app.route('/')
-def hello_world():
+def render_site():
     return render_template('index.html')
 
 @app.route('/update', methods=('GET', 'POST'))
 def update():
     if request.method == 'POST':
         str = request.form['str']
-        estr = EncryptionStr(base64_encrypt, str)
+        estr = EncryptionStr(Encrypt.base64_encrypt, str)
         estr.encrypt(estr)
         return estr.s
 
