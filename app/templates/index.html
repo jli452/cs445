@@ -7,6 +7,11 @@
 <form name="search" action="/update" method="POST">
   <label for="str">Enter a string you want to encrypt:</label><br>
   <input type="text" id="str" name="str" placeholder="Encrypt this"><br>
+  <label for="etype">Choose an encryption type (Yes, we know it is encoding not encrypting):</label>
+  <select name="etype" id="etype">
+    <option value="volvo">base64</option>
+    <option value="audi">not base64</option>
+  </select>
   <input type="submit" value="Submit">
 </form>
 

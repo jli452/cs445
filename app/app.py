@@ -12,8 +12,8 @@ def render_site():
 @app.route('/update', methods=('GET', 'POST'))
 def update():
     if request.method == 'POST':
-        str = request.form['str']
-        estr = EncryptionStr(Encrypt.base64_encrypt, str)
+        string = request.form['str']
+        estr = EncryptionStr(Encrypt.base64_encrypt, string)
         estr.encrypt(estr)
         return estr.s
 
