@@ -28,8 +28,3 @@ def update():
 if __name__ == '__main__':
     app.debug = True
     app.run()
-
-
-#build using "docker build -t getting-started ."
-#then run the image with "docker run --publish 5000:5000 getting-started" or any port
-#then go on browser and type "localhost:5000" in search bar or any port
