@@ -10,4 +10,6 @@ RUN pip install -r /var/tmp/requirements.txt
 
 COPY app.py /var/
 
+COPY templates /var/templates
+
 CMD ["python3", "-m" , "flask", "run", "--host=0.0.0.0"]
